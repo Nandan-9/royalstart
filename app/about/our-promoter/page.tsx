@@ -37,9 +37,10 @@ export default function OurPromoterPage() {
     <div className="page-wrapper">
       <PageHero breadcrumb="Our Promoter" title="Our Promoter" />
 
-      <section className="py-16">
+      <section className="px-4 py-10 sm:px-6 md:px-10 lg:py-16">
         <div className="auto-container">
-          <p className="mb-12 text-gray-700 leading-relaxed">
+          <h2 className="text-2xl sm:text-3xl font-bold text-blue-600! mb-6 py-4">Our Promoters</h2>
+          <p className="mb-10 md:mb-12 text-gray-700 leading-relaxed text-sm sm:text-base">
             Mr. Sukumaran Erulkunnummel, an India national, is a pioneer in mining and contracting
             business with over 20 years of experience in the industry both in production and
             marketing. Apart from this organization, he is successfully operating continued mining
@@ -48,30 +49,32 @@ export default function OurPromoterPage() {
             projects are:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10">
             {projects.map((project) => (
-              <div key={project.name}>
-                <h3 className="text-2xl font-bold text-blue-900 mb-6">{project.name}</h3>
+              <div key={project.name} className="border border-gray-100 rounded-lg p-5 shadow-sm">
+                <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-5 pb-3 border-b border-gray-200">
+                  {project.name}
+                </h3>
                 <ul className="space-y-4">
-                  <li className="flex gap-3">
+                  <li className="flex gap-3 items-start">
                     <span className="mt-1 w-4 h-4 border border-gray-400 shrink-0" />
-                    <span>
+                    <span className="text-sm sm:text-base">
                       <span className="font-semibold text-blue-700">Location : </span>
-                      <strong>{project.location}</strong>
+                      <strong className="font-normal text-gray-700">{project.location}</strong>
                     </span>
                   </li>
-                  <li className="flex gap-3">
+                  <li className="flex gap-3 items-start">
                     <span className="mt-1 w-4 h-4 border border-gray-400 shrink-0" />
-                    <span>
+                    <span className="text-sm sm:text-base">
                       <span className="font-semibold text-blue-700">Title : </span>
-                      <strong>{project.title}</strong>
+                      <strong className="font-normal text-gray-700">{project.title}</strong>
                     </span>
                   </li>
-                  <li className="flex gap-3">
+                  <li className="flex gap-3 items-start">
                     <span className="mt-1 w-4 h-4 border border-gray-400 shrink-0" />
-                    <span>
+                    <span className="text-sm sm:text-base">
                       <span className="font-semibold text-blue-700">Licenced capacity : </span>
-                      <strong>{project.capacity}</strong>
+                      <strong className="font-normal text-gray-700">{project.capacity}</strong>
                     </span>
                   </li>
                 </ul>

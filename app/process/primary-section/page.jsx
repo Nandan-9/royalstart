@@ -29,7 +29,7 @@ export default function PrimarySectionsPage() {
         title="Primary Sections"
       />
 
-      <section className="py-16">
+      <section className="py-9 !p-10">
         <div className="auto-container">
           <div className="mb-10">
             <Image
@@ -37,17 +37,17 @@ export default function PrimarySectionsPage() {
               alt="Primary Section"
               width={500}
               height={500}
-              className="w-full object-cover rounded"
+              className="w-6xl object-cover rounded"
             />
           </div>
 
-          <h2 className="text-2xl font-bold text-blue-700 uppercase mb-8">
+          <h2 className="text-2xl font-bold !text-blue-700 uppercase mb-8 pt-5 pb-3">
             Primary Section
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {boxes.map((box) => (
-              <div key={box.title} className="border border-gray-200 rounded p-6">
+              <div key={box.title} className="border border-gray-200 rounded !p-6">
                 <h3 className="text-lg font-bold mb-3">{box.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{box.body}</p>
               </div>

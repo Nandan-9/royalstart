@@ -12,7 +12,7 @@ const navLinks = [
     href: "/#about",
     hasDropdown: true,
     dropdownItems: [
-      { label: "About Royal Star", href: "/about/royal-star" },
+      { label: "About Royal Star", href: "#about" },
       { label: "Production Capacity", href: "/about/production-capacity" },
       { label: "Certificates", href: "/about/certificates" },
       { label: "Our Promoter", href: "/about/our-promoter" },

@@ -14,7 +14,7 @@ export default function FinalScreenPage() {
         title="Final Screen"
       />
 
-      <section className="py-16">
+      <section className="py-9 !p-10">
         <div className="auto-container">
           <div className="mb-10">
             <Image
@@ -22,18 +22,18 @@ export default function FinalScreenPage() {
               alt="Final Screen"
               width={500}
               height={500}
-              className="w-full object-cover rounded"
+              className="w-6xl object-cover rounded"
             />
           </div>
 
-          <h2 className="text-3xl font-bold text-blue-700 uppercase mb-4">
+          <h2 className="text-3xl font-bold !text-blue-600 uppercase mb-2 !pt-10">
             Final Screen
           </h2>
-          <p className="text-gray-600 mb-12">
+          <p className="text-gray-600 mb-16">
             This is the last process in producing the aggregates and piling involving the best in class quality assurance. The screens work simultaneously to sort the product and spread it into 3 stock piles of final product, being RE 3/16, 3/8 and 3/4 through long sophisticated conveyor belts.
           </p>
 
-          <h2 className="text-3xl font-bold text-blue-700 uppercase mb-4">
+          <h2 className="text-3xl font-bold !text-blue-600 uppercase ">
             Environmental
           </h2>
           <p className="text-gray-600 mb-6">

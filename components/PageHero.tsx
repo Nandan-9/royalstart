@@ -8,7 +8,7 @@ interface PageHeroProps {
 
 export default function PageHero({ breadcrumb, title }: PageHeroProps) {
   return (
-    <section className="relative w-full overflow-hidden pb-10" style={{ minHeight: "460px" }} >
+    <section className="relative  w-full overflow-hidden pb-10" style={{ minHeight: "460px" }} >
       <Image
         src="/assets/image1.png"
         alt=""
@@ -24,8 +24,8 @@ export default function PageHero({ breadcrumb, title }: PageHeroProps) {
       />
 
       <div
-        className="auto-container relative z-10 flex flex-col justify-center"
-        style={{ minHeight: "260px" }}
+        className="auto-container flex flex-col justify-center"
+        style={{ minHeight: "260px", position: "relative", zIndex: 10 }}
       >
         <nav aria-label="Breadcrumb">
           <ul className="flex items-center gap-2 text-white text-sm font-medium mb-4 list-none p-0 m-0">

@@ -54,7 +54,7 @@ export default function EquipmentPage() {
         title="Our Equipments"
       />
 
-      <section className="py-16">
+      <section className="py-16 !p-10">
         <div className="auto-container">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">

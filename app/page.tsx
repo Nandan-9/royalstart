@@ -362,7 +362,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 !p-5">
         <div className="sec-title centered">
           <div className="big-text">Blog</div>
           <h2 className='pt-5'>Blogs</h2>

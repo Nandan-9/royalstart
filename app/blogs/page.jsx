@@ -16,7 +16,7 @@ export default function BlogPage() {
         title="Our Blogs"
       />
 
-      <section className="py-16">
+      <section className="py-16 !p-10">
         <div className="auto-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {blogs.map((blog) => (

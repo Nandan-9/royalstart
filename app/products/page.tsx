@@ -47,12 +47,21 @@ export default function CertificatesPage() {
                 <div className="group relative overflow-hidden rounded shadow-sm bg-white cursor-pointer">
                   <div className="relative h-56 overflow-hidden">
                     <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out flex flex-col px-8 pt-8 pb-6">
-                      <h5 className="font-bold text-lg mb-3 ml-10 px-10">{product.name}</h5>
+                    <div className="absolute inset-0 bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out flex flex-col justify-center items-center text-center px-6">
+                      <h5 className="font-bold text-lg mb-4">
+                        {product.name}
+                      </h5>
+
                       {product.items.map(item => (
-                        <p key={item} className="text-sm text-gray-800 mb-1">{item}</p>
+                        <p key={item} className="text-sm text-gray-800 mb-2">
+                          {item}
+                        </p>
                       ))}
-                      <a href="/contact" className="inline-block mt-4 bg-[#e41f1f] text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 no-underline">
+
+                      <a
+                        href="/contact"
+                        className="inline-block mt-4 bg-[#e41f1f] text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 no-underline"
+                      >
                         READ MORE &rsaquo;
                       </a>
                     </div>

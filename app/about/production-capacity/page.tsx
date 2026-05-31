@@ -33,6 +33,7 @@ export default function ProductionCapacityPage() {
   className="py-16 mt-10"
   style={{
     marginTop: "200px",
+    
   }}
 >        <div className="max-w-6xl mx-auto px-8">
 
