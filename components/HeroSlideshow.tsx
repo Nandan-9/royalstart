@@ -47,17 +47,17 @@ export default function HeroSlideshow() {
       {slides.map((slide, i) => (
         <div
           key={slide.image + '-content'}
-          className="absolute inset-0 flex items-end z-10 transition-opacity duration-1000 ease-in-out"
+          className="absolute inset-0 z-10 transition-opacity duration-1000 ease-in-out"
           style={{ opacity: i === currentImage ? 1 : 0 }}
         >
-          <div className="pb-114 pl-96 pr-8 max-w-4xl">
-            <h1 className="text-white text-5xl font-extrabold uppercase leading-tight mb-4 drop-shadow-lg">
+          <div className="absolute bottom-16 left-4 max-w-[calc(100%-2rem)] sm:bottom-24 sm:left-8 sm:max-w-sm md:bottom-40 md:left-16 md:max-w-lg lg:bottom-95 lg:left-90 lg:max-w-180">
+            <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase leading-tight mb-4 drop-shadow-lg">
               {slide.title}
             </h1>
-            <p className="text-white text-base leading-relaxed drop-shadow-md">
+            <p className="text-white text-sm sm:text-base leading-relaxed drop-shadow-md">
               {slide.desc}
             </p>
-            <a href="#about" className="inline-block mt-6 px-8 py-3 bg-red-700 text-white font-bold uppercase tracking-wide hover:bg-white hover:text-red-700 transition-colors duration-300">
+            <a href="#about" className="inline-block mt-6 px-8 py-3 bg-red-700 text-white font-bold uppercase tracking-wide border-2 border-red-700 hover:bg-white hover:text-red-700 transition-colors duration-300">
               About Us
             </a>
           </div>
