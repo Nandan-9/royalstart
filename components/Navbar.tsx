@@ -225,7 +225,7 @@ export default function Navbar() {
       </div>
 
       {/* Logo / contact row */}
-      <div className="bg-white border-b border-gray-200 py-2 px-4">
+      <div className="hidden md:block bg-white border-b border-gray-200 py-2 px-4">
         <div className="container mx-auto flex flex-wrap items-center justify-between gap-4">
           <Link href="/">
             <Image
@@ -304,6 +304,19 @@ export default function Navbar() {
       {/* Nav links */}
       <nav className="bg-[#e53935] px-4">
         <div className="container mx-auto flex items-center justify-between">
+          {/* Mobile logo – only visible on mobile */}
+          <Link href="/" className="md:hidden py-1 shrink-0">
+            <Image
+              src="/assets/logo.png"
+              alt="Royal Star Crusher LLC"
+              width={110}
+              height={72}
+              className="object-contain"
+              style={{ height: "auto" }}
+              priority
+            />
+          </Link>
+
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center">
             {navLinks.map((link) => (
@@ -313,7 +326,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden ml-auto py-4 text-white hover:text-white/80 transition-colors"
+            className="md:hidden py-4 text-white hover:text-white/80 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -349,7 +362,7 @@ export default function Navbar() {
 
                       {/* Accordion content */}
                       {mobileOpenIndex === index && (
-                        <ul className="bg-[#1a3c6e]">
+                        <ul className="bg-[#1a3c6e] pl-3">
                           {link.dropdownItems.map((item) => (
                             <li key={item.href}>
                               <Link

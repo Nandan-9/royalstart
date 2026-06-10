@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#0d47a1", position: "relative", overflow: "hidden" }} className="text-white">
       <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/assets/image4.png')", backgroundSize: "50%", backgroundPosition: "center", backgroundRepeat: "no-repeat", opacity: 0.1, zIndex: 0 }} />
-      <div style={{ padding: "80px 70px 56px", position: "relative", zIndex: 1 }}>
+      <div className="px-4 sm:px-10 md:px-17.5 pt-20 pb-14" style={{ position: "relative", zIndex: 1 }}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
           {/* About */}
@@ -60,8 +60,8 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Your mail address"
-                className="px-4 py-2 text-sm text-white placeholder-white/60 focus:outline-none"
-                style={{ width: "220px", backgroundColor: "rgba(255,255,255,0.12)", border: "none" }}
+                className="flex-1 px-4 py-2 text-sm text-white placeholder-white/60 focus:outline-none"
+                style={{ backgroundColor: "rgba(255,255,255,0.12)", border: "none" }}
               />
               <button
                 type="submit"

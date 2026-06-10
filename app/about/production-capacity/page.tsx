@@ -29,16 +29,10 @@ export default function ProductionCapacityPage() {
         title="Our Production Capacity – Present to Future"
       />
 
-<section
-  className="py-16 mt-10"
-  style={{
-    marginTop: "200px",
-    
-  }}
->        <div className="max-w-6xl mx-auto px-8">
+<section className="py-16 mt-10">        <div className="max-w-6xl mx-auto px-8">
 
           {/* Two-column intro */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center !mb-28">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-28!">
               <div className="relative w-full" style={{ height: "240px" }}>
               <Image
                 src="/assets/image2.png"
@@ -58,13 +52,13 @@ export default function ProductionCapacityPage() {
           </div>
 
           {/* Three feature cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 !mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10!">
           {cards.map((card) => (
             <div
               key={card.heading}
               className="bg-gray-100   flex flex-col gap-8 p-5"
             >
-              <h3 className="text-xl font-extrabold uppercase tracking-wide !text-red-500">
+              <h3 className="text-xl font-extrabold uppercase tracking-wide text-red-500!">
                 {card.heading}
               </h3>
 
