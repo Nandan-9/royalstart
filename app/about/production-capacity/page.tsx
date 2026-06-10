@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import MobileCarousel from "@/components/MobileCarousel";
 
 export const metadata = {
   title: "Production Capacity | Royal Star Crusher LLC",
@@ -21,6 +22,17 @@ const cards = [
   },
 ];
 
+function FeatureCard({ card }: { card: typeof cards[0] }) {
+  return (
+    <div className="bg-gray-100 flex flex-col gap-8 p-5 h-full">
+      <h3 className="text-xl font-extrabold uppercase tracking-wide text-red-500!">
+        {card.heading}
+      </h3>
+      <p className="text-gray-700 leading-8">{card.body}</p>
+    </div>
+  );
+}
+
 export default function ProductionCapacityPage() {
   return (
     <div className="page-wrapper">
@@ -29,11 +41,12 @@ export default function ProductionCapacityPage() {
         title="Our Production Capacity – Present to Future"
       />
 
-<section className="py-16 mt-10">        <div className="max-w-6xl mx-auto px-8">
+      <section className="py-16 mt-10">
+        <div className="max-w-6xl mx-auto px-8">
 
           {/* Two-column intro */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-28!">
-              <div className="relative w-full" style={{ height: "240px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-28!">
+            <div className="relative w-full" style={{ height: "240px" }}>
               <Image
                 src="/assets/image2.png"
                 alt="Royal Star Crusher operations"
@@ -51,23 +64,21 @@ export default function ProductionCapacityPage() {
             </p>
           </div>
 
-          {/* Three feature cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10!">
-          {cards.map((card) => (
-            <div
-              key={card.heading}
-              className="bg-gray-100   flex flex-col gap-8 p-5"
-            >
-              <h3 className="text-xl font-extrabold uppercase tracking-wide text-red-500!">
-                {card.heading}
-              </h3>
+          {/* Three feature cards — desktop grid */}
+          <div className="hidden md:grid grid-cols-3 gap-8 mb-10!">
+            {cards.map((card) => (
+              <FeatureCard key={card.heading} card={card} />
+            ))}
+          </div>
 
-              <p className="text-gray-700 leading-8">
-                {card.body}
-              </p>
-            </div>
-          ))}
-        </div>
+          {/* Three feature cards — mobile carousel */}
+          <div className="md:hidden mb-10!">
+            <MobileCarousel>
+              {cards.map((card) => (
+                <FeatureCard key={card.heading} card={card} />
+              ))}
+            </MobileCarousel>
+          </div>
 
         </div>
       </section>

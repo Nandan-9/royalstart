@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import MobileCarousel from "@/components/MobileCarousel";
 
 export const metadata = {
   title: "Secondary Section | Royal Star Crusher LLC",
@@ -40,15 +41,30 @@ export default function SecondarySectionsPage() {
             To assure premium quality, we have mantled two Cone crushers which work as a first and second crushing process for the oversize material passed again, this process result in to fully crushed materials. One more such Cone Crusher is intended to raise the Capacity to more than 700 TPH
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 !pb-10">
-            <div className="border border-gray-200 rounded !p-6">
+          {/* Desktop grid */}
+          <div className="hidden md:grid grid-cols-2 gap-6 pb-10!">
+            <div className="border border-gray-200 rounded p-6!">
               <h4 className="text-base font-bold mb-3">48S Style &lsquo;D&rsquo; Gyrasphere Crusher - Telsmith TP40 USA</h4>
               <p className="text-gray-600 text-sm leading-relaxed">It is a gyratory reduction crusher of the spring relief type.</p>
             </div>
-            <div className="border border-gray-200 rounded !p-6">
+            <div className="border border-gray-200 rounded p-6!">
               <h4 className="text-base font-bold mb-3">Screens 3 deck 5.5 x 1.5 Meter LJ series Cederapids (USA) 2nos</h4>
               <p className="text-gray-600 text-sm leading-relaxed">These are for screening the output materials from the Cone crushers to sort them as per the required dimensions/sizes and distribute those materials into the next level HP 600 Nordberg barmac B1000 series VSI.</p>
             </div>
+          </div>
+
+          {/* Mobile carousel */}
+          <div className="md:hidden pb-10!">
+            <MobileCarousel>
+              <div className="border border-gray-200 rounded p-6!">
+                <h4 className="text-base font-bold mb-3">48S Style &lsquo;D&rsquo; Gyrasphere Crusher - Telsmith TP40 USA</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">It is a gyratory reduction crusher of the spring relief type.</p>
+              </div>
+              <div className="border border-gray-200 rounded p-6!">
+                <h4 className="text-base font-bold mb-3">Screens 3 deck 5.5 x 1.5 Meter LJ series Cederapids (USA) 2nos</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">These are for screening the output materials from the Cone crushers to sort them as per the required dimensions/sizes and distribute those materials into the next level HP 600 Nordberg barmac B1000 series VSI.</p>
+              </div>
+            </MobileCarousel>
           </div>
 
           <h3 className="text-xl font-bold !text-blue-600 mb-3 !pt-10">

@@ -2,6 +2,7 @@ import { blogs } from "../data";
 import Image from "next/image";
 import Link from "next/link";
 import HeroSlideshow from "@/components/HeroSlideshow";
+import MobileCarousel from "@/components/MobileCarousel";
 
 const products = [
   {
@@ -26,6 +27,28 @@ const products = [
   },
 ];
 
+function ProductCard({ product }: { product: typeof products[0] }) {
+  return (
+    <div className="group relative overflow-hidden rounded shadow-sm bg-white cursor-pointer">
+      <div className="relative h-56 overflow-hidden">
+        <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+        <div className="absolute inset-0 bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out flex flex-col px-8 pt-8 pb-6">
+          <h5 className="font-bold text-lg mb-3 ml-10 px-10">{product.name}</h5>
+          {product.items.map(item => (
+            <p key={item} className="text-sm text-gray-800 mb-1">{item}</p>
+          ))}
+          <a href="/contact" className="inline-block mt-4 bg-[#e41f1f] text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 no-underline">
+            READ MORE &rsaquo;
+          </a>
+        </div>
+      </div>
+      <div className="p-4 overflow-hidden">
+        <h5 className="font-bold text-base text-gray-900 translate-y-0 group-hover:translate-y-[300%] transition-transform duration-500 ease-in-out">{product.name}</h5>
+      </div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <div className="page-wrapper">
@@ -36,41 +59,85 @@ export default function HomePage() {
       <section className="service-section">
         <div className="auto-container">
           <div className="inner-container">
-            <div className="row clearfix">
-              <div className="service-block col-lg-4 col-md-6 col-sm-12">
-                <div className="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                  <div className="shape-one"></div>
-                  <div className="shape-two"></div>
-                  <div className="image-layer"></div>
-                  <h5><a href="/about">Preamble</a></h5>
-                  <div className="text">As a Profile describer this document deals with an upward business profile to offer a broad
-                    understanding of the company ROYAL STAR CRUSHER LLC,...</div>
-                  <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+
+            {/* Desktop grid */}
+            <div className="hidden md:block">
+              <div className="row clearfix">
+                <div className="service-block col-lg-4 col-md-6 col-sm-12">
+                  <div className="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div className="shape-one"></div>
+                    <div className="shape-two"></div>
+                    <div className="image-layer"></div>
+                    <h5><a href="/about">Preamble</a></h5>
+                    <div className="text">As a Profile describer this document deals with an upward business profile to offer a broad
+                      understanding of the company ROYAL STAR CRUSHER LLC,...</div>
+                    <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                  </div>
                 </div>
-              </div>
-              <div className="service-block col-lg-4 col-md-6 col-sm-12">
-                <div className="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                  <div className="shape-one"></div>
-                  <div className="shape-two"></div>
-                  <div className="image-layer"></div>
-                  <h5><a href="/about">Vision</a></h5>
-                  <div className="text">To be the Premier organization locally and internationally by delivering innovative
-                    quality products tailored for the clientele in right quantities,...</div>
-                  <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                <div className="service-block col-lg-4 col-md-6 col-sm-12">
+                  <div className="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div className="shape-one"></div>
+                    <div className="shape-two"></div>
+                    <div className="image-layer"></div>
+                    <h5><a href="/about">Vision</a></h5>
+                    <div className="text">To be the Premier organization locally and internationally by delivering innovative
+                      quality products tailored for the clientele in right quantities,...</div>
+                    <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                  </div>
                 </div>
-              </div>
-              <div className="service-block col-lg-4 col-md-6 col-sm-12">
-                <div className="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                  <div className="shape-one"></div>
-                  <div className="shape-two"></div>
-                  <div className="image-layer"></div>
-                  <h5><a href="/about">Mission</a></h5>
-                  <div className="text">To lead UAE&apos;s renowned aggregate sector to future by deploying an optimal mix of world class
-                    technology, best-in-class equipment and competitive...</div>
-                  <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                <div className="service-block col-lg-4 col-md-6 col-sm-12">
+                  <div className="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div className="shape-one"></div>
+                    <div className="shape-two"></div>
+                    <div className="image-layer"></div>
+                    <h5><a href="/about">Mission</a></h5>
+                    <div className="text">To lead UAE&apos;s renowned aggregate sector to future by deploying an optimal mix of world class
+                      technology, best-in-class equipment and competitive...</div>
+                    <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Mobile carousel */}
+            <div className="md:hidden">
+              <MobileCarousel>
+                <div className="service-block">
+                  <div className="inner-box" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div className="shape-one"></div>
+                    <div className="shape-two"></div>
+                    <div className="image-layer"></div>
+                    <h5><a href="/about">Preamble</a></h5>
+                    <div className="text">As a Profile describer this document deals with an upward business profile to offer a broad
+                      understanding of the company ROYAL STAR CRUSHER LLC,...</div>
+                    <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                  </div>
+                </div>
+                <div className="service-block">
+                  <div className="inner-box" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div className="shape-one"></div>
+                    <div className="shape-two"></div>
+                    <div className="image-layer"></div>
+                    <h5><a href="/about">Vision</a></h5>
+                    <div className="text">To be the Premier organization locally and internationally by delivering innovative
+                      quality products tailored for the clientele in right quantities,...</div>
+                    <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                  </div>
+                </div>
+                <div className="service-block">
+                  <div className="inner-box" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div className="shape-one"></div>
+                    <div className="shape-two"></div>
+                    <div className="image-layer"></div>
+                    <h5><a href="/about">Mission</a></h5>
+                    <div className="text">To lead UAE&apos;s renowned aggregate sector to future by deploying an optimal mix of world class
+                      technology, best-in-class equipment and competitive...</div>
+                    <a className="read-more" href="/about">Read More <span className="flaticon-right-arrow"></span></a>
+                  </div>
+                </div>
+              </MobileCarousel>
+            </div>
+
           </div>
         </div>
       </section>
@@ -145,29 +212,27 @@ export default function HomePage() {
             <div className="title">Our Products</div>
             <h2>Our Major Products</h2>
           </div>
-          <div className="row clearfix ">
-            {products.map(product => (
-              <div key={product.name} className="col-lg-4 col-md-6 col-sm-12 mb-10">
-                <div className="group relative overflow-hidden rounded shadow-sm bg-white cursor-pointer">
-                  <div className="relative h-56 overflow-hidden">
-                    <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                    <div className="absolute inset-0 bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out flex flex-col px-8 pt-8 pb-6">
-                      <h5 className="font-bold text-lg mb-3 ml-10 px-10">{product.name}</h5>
-                      {product.items.map(item => (
-                        <p key={item} className="text-sm text-gray-800 mb-1">{item}</p>
-                      ))}
-                      <a href="/contact" className="inline-block mt-4 bg-[#e41f1f] text-white text-xs font-bold uppercase tracking-widest px-5 py-2.5 no-underline">
-                        READ MORE &rsaquo;
-                      </a>
-                    </div>
-                  </div>
-                  <div className="p-4 overflow-hidden">
-                    <h5 className="font-bold text-base text-gray-900 translate-y-0 group-hover:translate-y-[300%] transition-transform duration-500 ease-in-out">{product.name}</h5>
-                  </div>
+
+          {/* Desktop grid */}
+          <div className="hidden md:block">
+            <div className="row clearfix">
+              {products.map(product => (
+                <div key={product.name} className="col-lg-4 col-md-6 col-sm-12 mb-10">
+                  <ProductCard product={product} />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
+          {/* Mobile carousel */}
+          <div className="md:hidden">
+            <MobileCarousel>
+              {products.map(product => (
+                <ProductCard key={product.name} product={product} />
+              ))}
+            </MobileCarousel>
+          </div>
+
         </div>
       </section>
 
@@ -281,47 +346,97 @@ export default function HomePage() {
       {/* Service Section Five – Operations */}
       <section className="service-section-five mt-0 pt-0">
         <div className="auto-container">
-          <div className="row clearfix">
-            <div className="service-block-four style-two col-lg-6">
-              <div className="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                <div className="image-layer"></div>
-                <div className="post-number">01</div>
-                <h5><a href="#">Weighing Bridge</a></h5>
-                <div className="text">We have a world class fully computerized weighing system to facilitate loading material
-                  precisely and efficiently. We utilize the latest technology which enables us to precisely
-                  control our stock and sales operation.</div>
+
+          {/* Desktop grid */}
+          <div className="hidden md:block">
+            <div className="row clearfix">
+              <div className="service-block-four style-two col-lg-6">
+                <div className="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                  <div className="image-layer"></div>
+                  <div className="post-number">01</div>
+                  <h5><a href="#">Weighing Bridge</a></h5>
+                  <div className="text">We have a world class fully computerized weighing system to facilitate loading material
+                    precisely and efficiently. We utilize the latest technology which enables us to precisely
+                    control our stock and sales operation.</div>
+                </div>
               </div>
-            </div>
-            <div className="service-block-four style-two col-lg-6">
-              <div className="inner-box wow fadeInLeft" data-wow-delay="150ms" data-wow-duration="1500ms">
-                <div className="image-layer"></div>
-                <div className="post-number">02</div>
-                <h5><a href="#">Human resources</a></h5>
-                <div className="text">We possess presently the best in class work force of requisite numbers both directly and
-                  indirectly ranging from Mine/quarry/plant managers to blast man, QA&amp;QC staff and all
-                  the required personnel to manage and support the show.</div>
+              <div className="service-block-four style-two col-lg-6">
+                <div className="inner-box wow fadeInLeft" data-wow-delay="150ms" data-wow-duration="1500ms">
+                  <div className="image-layer"></div>
+                  <div className="post-number">02</div>
+                  <h5><a href="#">Human resources</a></h5>
+                  <div className="text">We possess presently the best in class work force of requisite numbers both directly and
+                    indirectly ranging from Mine/quarry/plant managers to blast man, QA&amp;QC staff and all
+                    the required personnel to manage and support the show.</div>
+                </div>
               </div>
-            </div>
-            <div className="service-block-four style-two col-lg-6">
-              <div className="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-                <div className="image-layer"></div>
-                <div className="post-number">03</div>
-                <h5><a href="#">Administration Office</a></h5>
-                <div className="text">We formaly started our full-fledged Office at 2016. As part of our standardization efforts,
-                  we have established well-organized offices at premium levels in this region so as to aid us
-                  to administer our whole set of operations smoothly and systematically.</div>
+              <div className="service-block-four style-two col-lg-6">
+                <div className="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+                  <div className="image-layer"></div>
+                  <div className="post-number">03</div>
+                  <h5><a href="#">Administration Office</a></h5>
+                  <div className="text">We formaly started our full-fledged Office at 2016. As part of our standardization efforts,
+                    we have established well-organized offices at premium levels in this region so as to aid us
+                    to administer our whole set of operations smoothly and systematically.</div>
+                </div>
               </div>
-            </div>
-            <div className="service-block-four style-two col-lg-6">
-              <div className="inner-box wow fadeInLeft" data-wow-delay="450ms" data-wow-duration="1500ms">
-                <div className="image-layer"></div>
-                <div className="post-number">04</div>
-                <h5><a href="#">Logistics Management</a></h5>
-                <div className="text">We have made our fleet strong with our own and contract leased 20cbm and 45cbm trailer
-                  trucks to make supply of products to any location within the UAE.</div>
+              <div className="service-block-four style-two col-lg-6">
+                <div className="inner-box wow fadeInLeft" data-wow-delay="450ms" data-wow-duration="1500ms">
+                  <div className="image-layer"></div>
+                  <div className="post-number">04</div>
+                  <h5><a href="#">Logistics Management</a></h5>
+                  <div className="text">We have made our fleet strong with our own and contract leased 20cbm and 45cbm trailer
+                    trucks to make supply of products to any location within the UAE.</div>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* Mobile carousel */}
+          <div className="md:hidden">
+            <MobileCarousel>
+              <div className="service-block-four style-two">
+                <div className="inner-box">
+                  <div className="image-layer"></div>
+                  <div className="post-number">01</div>
+                  <h5><a href="#">Weighing Bridge</a></h5>
+                  <div className="text">We have a world class fully computerized weighing system to facilitate loading material
+                    precisely and efficiently. We utilize the latest technology which enables us to precisely
+                    control our stock and sales operation.</div>
+                </div>
+              </div>
+              <div className="service-block-four style-two">
+                <div className="inner-box">
+                  <div className="image-layer"></div>
+                  <div className="post-number">02</div>
+                  <h5><a href="#">Human resources</a></h5>
+                  <div className="text">We possess presently the best in class work force of requisite numbers both directly and
+                    indirectly ranging from Mine/quarry/plant managers to blast man, QA&amp;QC staff and all
+                    the required personnel to manage and support the show.</div>
+                </div>
+              </div>
+              <div className="service-block-four style-two">
+                <div className="inner-box">
+                  <div className="image-layer"></div>
+                  <div className="post-number">03</div>
+                  <h5><a href="#">Administration Office</a></h5>
+                  <div className="text">We formaly started our full-fledged Office at 2016. As part of our standardization efforts,
+                    we have established well-organized offices at premium levels in this region so as to aid us
+                    to administer our whole set of operations smoothly and systematically.</div>
+                </div>
+              </div>
+              <div className="service-block-four style-two">
+                <div className="inner-box">
+                  <div className="image-layer"></div>
+                  <div className="post-number">04</div>
+                  <h5><a href="#">Logistics Management</a></h5>
+                  <div className="text">We have made our fleet strong with our own and contract leased 20cbm and 45cbm trailer
+                    trucks to make supply of products to any location within the UAE.</div>
+                </div>
+              </div>
+            </MobileCarousel>
+          </div>
+
         </div>
       </section>
 
@@ -340,7 +455,7 @@ export default function HomePage() {
           <div className="icon" style={{ marginBottom: '16px' }}>
             <span style={{ fontSize: '48px', color: '#c1272d' }}>★</span>
           </div>
-          <h2 style={{ color: '#fff', fontSize: '42px', fontWeight: 800, lineHeight: 1.3, textTransform: 'uppercase', marginBottom: '30px' }}>
+          <h2 className="text-2xl sm:text-3xl lg:text-[42px]" style={{ color: '#fff', fontWeight: 800, lineHeight: 1.3, textTransform: 'uppercase', marginBottom: '30px' }}>
             Contact To<br />Royal Star Crusher LLC
           </h2>
           <a
@@ -362,33 +477,64 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Blog Section */}
       <section className="py-16 !p-5">
         <div className="sec-title centered">
           <div className="big-text">Blog</div>
           <h2 className='pt-5'>Blogs</h2>
         </div>
         <div className="auto-container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogs.map((blog) => (
-              <Link key={blog.slug} href={`/blogs/${blog.slug}`} className="group border border-gray-200 rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="relative w-full h-52">
-                  <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="text-sm text-gray-400 mb-2">{blog.date}</p>
-                  <h3 className="text-base font-bold text-gray-800 leading-snug group-hover:text-blue-700 transition-colors">
-                    {blog.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
+
+          {/* Desktop grid */}
+          <div className="hidden md:block">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {blogs.map((blog) => (
+                <Link key={blog.slug} href={`/blogs/${blog.slug}`} className="group border border-gray-200 rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <div className="relative w-full h-52">
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-sm text-gray-400 mb-2">{blog.date}</p>
+                    <h3 className="text-base font-bold text-gray-800 leading-snug group-hover:text-blue-700 transition-colors">
+                      {blog.title}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
+
+          {/* Mobile carousel */}
+          <div className="md:hidden">
+            <MobileCarousel>
+              {blogs.map((blog) => (
+                <Link key={blog.slug} href={`/blogs/${blog.slug}`} className="group border border-gray-200 rounded overflow-hidden shadow-sm">
+                  <div className="relative w-full h-52">
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      fill
+                      sizes="100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <p className="text-sm text-gray-400 mb-2">{blog.date}</p>
+                    <h3 className="text-base font-bold text-gray-800 leading-snug">
+                      {blog.title}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </MobileCarousel>
+          </div>
+
         </div>
       </section>
 

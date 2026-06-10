@@ -1,4 +1,5 @@
 import PageHero from "@/components/PageHero";
+import MobileCarousel from "@/components/MobileCarousel";
 
 export const metadata = {
   title: "Our Promoter | Royal Star Crusher LLC",
@@ -49,7 +50,8 @@ export default function OurPromoterPage() {
             projects are:
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10">
+          {/* Desktop grid */}
+          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-10">
             {projects.map((project) => (
               <div key={project.name} className="border border-gray-100 rounded-lg p-5 shadow-sm">
                 <h3 className="text-lg sm:text-xl font-bold text-blue-900 mb-5 pb-3 border-b border-gray-200">
@@ -80,6 +82,42 @@ export default function OurPromoterPage() {
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* Mobile carousel */}
+          <div className="sm:hidden">
+            <MobileCarousel>
+              {projects.map((project) => (
+                <div key={project.name} className="border border-gray-100 rounded-lg p-5 shadow-sm">
+                  <h3 className="text-lg font-bold text-blue-900 mb-5 pb-3 border-b border-gray-200">
+                    {project.name}
+                  </h3>
+                  <ul className="space-y-4">
+                    <li className="flex gap-3 items-start">
+                      <span className="mt-1 w-4 h-4 border border-gray-400 shrink-0" />
+                      <span className="text-sm">
+                        <span className="font-semibold text-blue-700">Location : </span>
+                        <strong className="font-normal text-gray-700">{project.location}</strong>
+                      </span>
+                    </li>
+                    <li className="flex gap-3 items-start">
+                      <span className="mt-1 w-4 h-4 border border-gray-400 shrink-0" />
+                      <span className="text-sm">
+                        <span className="font-semibold text-blue-700">Title : </span>
+                        <strong className="font-normal text-gray-700">{project.title}</strong>
+                      </span>
+                    </li>
+                    <li className="flex gap-3 items-start">
+                      <span className="mt-1 w-4 h-4 border border-gray-400 shrink-0" />
+                      <span className="text-sm">
+                        <span className="font-semibold text-blue-700">Licenced capacity : </span>
+                        <strong className="font-normal text-gray-700">{project.capacity}</strong>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              ))}
+            </MobileCarousel>
           </div>
         </div>
       </section>
